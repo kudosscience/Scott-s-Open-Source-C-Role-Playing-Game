@@ -150,7 +150,14 @@ namespace Engine.ViewModels
                 {
                     if (CurrentPlayer.HasAllTheseItems(quest.ItemsToComplete))
                     {
-                        CurrentPlayer.RemoveItemsFromInventory(quest.ItemsToComplete);
+                        // Remove the quest completion items from the player's inventory
+                        foreach (ItemQuantity itemQuantity in quest.ItemsToComplete)
+                        {
+                            for (int i = 0; i < itemQuantity.Quantity; i++)
+                            {
+                                CurrentPlayer.RemoveItemFromInventory(CurrentPlayer.Inventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
+                            }
+                        }
                         RaiseMessage("");
                         RaiseMessage($"You completed the '{quest.Name}' quest");
                         // Give the player the quest rewards
@@ -232,7 +239,13 @@ namespace Engine.ViewModels
         {
             if (CurrentPlayer.HasAllTheseItems(recipe.Ingredients))
             {
-                CurrentPlayer.RemoveItemsFromInventory(recipe.Ingredients);
+                foreach (ItemQuantity itemQuantity in recipe.Ingredients)
+                {
+                    for (int i = 0; i < itemQuantity.Quantity; i++)
+                    {
+                        CurrentPlayer.RemoveItemFromInventory(CurrentPlayer.Inventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
+                    }
+                }
                 foreach (ItemQuantity itemQuantity in recipe.OutputItems)
                 {
                     for (int i = 0; i < itemQuantity.Quantity; i++)
