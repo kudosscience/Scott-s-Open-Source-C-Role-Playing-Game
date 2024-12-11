@@ -111,6 +111,9 @@
     <Content Include="GameData\Monsters.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="GameData\Quests.xml" />
+    <Content Include="GameData\Recipes.xml" />
+    <Content Include="GameData\Traders.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Monsters\GiantSpider.png">
