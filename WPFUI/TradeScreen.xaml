@@ -16,27 +16,27 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        
         <Label Grid.Row="0" Grid.Column="0"
                Grid.ColumnSpan="2"
                HorizontalAlignment="Center"
                Content="{Binding CurrentTrader.Name}"/>
-
+        
         <Label Grid.Row="1" Grid.Column="0"
                HorizontalAlignment="Center"
                Content="Your Inventory"/>
         <Label Grid.Row="1" Grid.Column="1"
                HorizontalAlignment="Center"
                Content="Trader's Inventory"/>
-
+        
         <DataGrid Grid.Row="2" Grid.Column="0"
                   Margin="10"
-                  ItemsSource="{Binding CurrentPlayer.GroupedInventory}"
+                  ItemsSource="{Binding CurrentPlayer.Inventory.GroupedInventory}"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
@@ -46,7 +46,7 @@
                 <DataGridTextColumn Header="Description"
                                     IsReadOnly="True"
                                     Width="*"
-                                    Binding="{Binding Path=Item.Name}"/>
+                                    Binding="{Binding Item.Name}"/>
                 <DataGridTextColumn Header="Qty"
                                     IsReadOnly="True"
                                     Width="Auto"
@@ -54,7 +54,7 @@
                 <DataGridTextColumn Header="Price"
                                     IsReadOnly="True"
                                     Width="Auto"
-                                    Binding="{Binding Path=Item.Price}"/>
+                                    Binding="{Binding Item.Price}"/>
                 <DataGridTemplateColumn MinWidth="75">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -68,7 +68,7 @@
         </DataGrid>
         <DataGrid Grid.Row="2" Grid.Column="1"
                   Margin="10"
-                  ItemsSource="{Binding CurrentTrader.GroupedInventory}"
+                  ItemsSource="{Binding CurrentTrader.Inventory.GroupedInventory}"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
@@ -78,7 +78,7 @@
                 <DataGridTextColumn Header="Description"
                                     IsReadOnly="True"
                                     Width="*"
-                                    Binding="{Binding Path=Item.Name}"/>
+                                    Binding="{Binding Item.Name}"/>
                 <DataGridTextColumn Header="Qty"
                                     IsReadOnly="True"
                                     Width="Auto"
@@ -86,7 +86,7 @@
                 <DataGridTextColumn Header="Price"
                                     IsReadOnly="True"
                                     Width="Auto"
-                                    Binding="{Binding Path=Item.Price}"/>
+                                    Binding="{Binding Item.Price}"/>
                 <DataGridTemplateColumn MinWidth="75">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
