@@ -124,3 +124,4 @@ namespace Engine.Services
             return (string)data[nameof(GameSession.Version)];
         }
     }
+}
