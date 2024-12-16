@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -44,6 +43,7 @@ namespace Engine.Factories
             foreach (XmlNode node in nodes)
             {
                 GameItem.ItemCategory itemCategory = DetermineItemCategory(node.Name);
+
                 GameItem gameItem =
                     new GameItem(itemCategory,
                                  node.AttributeAsInt("ID"),
@@ -53,9 +53,7 @@ namespace Engine.Factories
                 if (itemCategory == GameItem.ItemCategory.Weapon)
                 {
                     gameItem.Action =
-                        new AttackWithWeapon(gameItem,
-                                             node.AttributeAsInt("MinimumDamage"),
-                                             node.AttributeAsInt("MaximumDamage"));
+                        new AttackWithWeapon(gameItem, node.AttributeAsString("DamageDice"));
                 }
                 else if (itemCategory == GameItem.ItemCategory.Consumable)
                 {
