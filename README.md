@@ -1,3 +1,3 @@
-# SOSCSRPG
-- My code from following SOSCSRPG, Scott’s Open Source C# Role-Playing Game – a tutorial to build a C# (WPF) game
+# Scott’s Open Source C# Role-Playing Game
+- My .NET 5 code for SOSCSRPG, Scott’s Open Source C# Role-Playing Game – a C# (WPF) game
 - [soscsrpg.com](soscsrpg.com)
